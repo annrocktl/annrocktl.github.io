@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rock Paper Scissors OU — Äritoetus ja Haldusteenused</title>
+  <meta name="description" content="Rock Paper Scissors OU pakub äritoetuse ja haldusteenuseid, aidates ettevõtetel keskenduda põhitegevusele, jättes administreerivad kohustused spetsialistidele." />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #1a120e; /* šokolaaditoon */
+      --ink: #f8f5f3;
+      --muted: #c2b8b2;
+      --accent: #f2b49b; /* virsik */
+      --accent-dark: #e08c6d;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0,0,0,.5);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font:16px/1.6 system-ui,sans-serif; color:var(--ink); background:var(--bg)}
+    a{text-decoration:none; color:inherit}
+    h1,h2,h3{margin:0}
+
+    header{background:var(--panel); box-shadow:var(--shadow); position:sticky; top:0; z-index:10}
+    nav{display:flex; justify-content:center; gap:24px; padding:16px}
+    nav a{padding:8px 12px; border-radius:8px; transition:.2s}
+    nav a:hover{background:rgba(242,180,155,.15)}
+
+    main{max-width:1100px; margin:0 auto; padding:40px 20px}
+
+    /* HERO uuendus: vasakul tekst, paremal foto */
+    .hero{padding:60px 20px}
+    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:22px; align-items:center}
+    @media (max-width: 920px){.hero-grid{grid-template-columns:1fr}}
+    .hero h1{font-size:clamp(26px,4vw,44px); color:var(--accent)}
+    .hero p{color:var(--muted); margin-top:12px}
+    .hero .btns{margin-top:20px; display:flex; gap:14px; flex-wrap:wrap}
+
+    .hero-art{position:relative; border-radius:22px; overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.08); background:#111}
+    .hero-art img{display:block; width:100%; height:100%; max-height:420px; object-fit:cover}
+
+    .btn{padding:12px 20px; border-radius:var(--radius); font-weight:600; cursor:pointer; border:0}
+    .btn.primary{background:var(--accent); color:#000}
+    .btn.outline{background:transparent; border:1px solid var(--accent); color:var(--accent)}
+    .btn:hover{opacity:.9}
+
+    section{padding:60px 0; border-bottom:1px solid rgba(255,255,255,.08)}
+    h2{font-size:clamp(22px,3vw,32px); margin-bottom:16px; color:var(--accent)}
+
+    .cards{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--panel); padding:20px; border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    form{display:grid; gap:14px; margin-top:20px}
+    label{font-weight:600}
+    input,textarea{padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:#121212; color:var(--ink)}
+    input:focus,textarea:focus{outline:2px solid var(--accent)}
+    button[type=submit]{background:var(--accent); border:0; padding:12px 20px; border-radius:var(--radius); font-weight:700; cursor:pointer; color:#000}
+
+    footer{padding:30px 20px; text-align:center; color:var(--muted)}
+    footer a{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#meist">Meist</a>
+      <a href="#teenused">Teenused</a>
+      <a href="#miks">Miks valida meid?</a>
+      <a href="#kes">Kes me oleme</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Rock Paper Scissors OU</h1>
+          <p>Äritoetuse ja haldusteenuste usaldusväärne partner Tallinnas</p>
+          <div class="btns">
+            <a href="#teenused" class="btn primary">Meie teenused</a>
+            <a href="#kontakt" class="btn outline">Võta ühendust</a>
+          </div>
+        </div>
+        <figure class="hero-art">
+          <!-- Asenda allolev fail enda fotoga või jäta see nimega hero-business.jpg samasse kausta -->
+          <img src="main.jpg" alt="Äritoetuse ja haldusteenuste töölaud: dokumentide haldus ja abitegevused"/>
+        </figure>
+      </div>
+    </section>
+
+    <section id="meist">
+      <h2>Meist</h2>
+      <p>Rock Paper Scissors OU on äritoetuse ja haldusteenuste valdkonnas tegutsev usaldusväärne partner, kelle fookus on protsesside lihtsustamisel ja klientide tegevuse efektiivistamisel. Meie eesmärk on olla strateegiline tugi ettevõtetele, kes soovivad keskenduda oma põhitegevusele, jättes igapäevased administreerivad kohustused spetsialistide hooleks.</p>
+    </section>
+
+    <section id="teenused">
+      <h2>Teenused</h2>
+      <div class="cards">
+        <div class="card">Büroohalduse teenused</div>
+        <div class="card">Sekretäri- ja assistenditeenused</div>
+        <div class="card">Dokumentide haldus ja arhiveerimine</div>
+        <div class="card">Tööjõu koordineerimine ja personalitugi</div>
+        <div class="card">Projektipõhine tugitegevus (sh teenuste sisseost)</div>
+        <div class="card">Andmehaldus ja aruandlus</div>
+      </div>
+    </section>
+
+    <section id="miks">
+      <h2>Miks valida meid?</h2>
+      <ul>
+        <li>Efektiivsus: aitame säästa teie aega ja ressursse</li>
+        <li>Paindlikkus: teenused skaleeritakse vastavalt teie kasvule</li>
+        <li>Usaldusväärsus: kogenud partner, kes tegutseb diskreetselt ja süsteemselt</li>
+        <li>Kliendikesksus: iga koostöö algab vajaduste kaardistamisega</li>
+      </ul>
+    </section>
+
+    <section id="kes">
+      <h2>Kes me oleme</h2>
+      <p>Meie meeskonda kuuluvad erineva taustaga spetsialistid, kellel on põhjalikud teadmised haldustöö, äritoetuse ja organisatsioonilise juhtimise valdkonnas. Koos moodustame tugistruktuuri, millele saavad ettevõtted loota nii igapäevases tegevuses kui ka arenguhüpete ajal.</p>
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <form id="kontaktForm">
+        <label for="nimi">Nimi</label>
+        <input id="nimi" name="nimi" type="text" required />
+
+        <label for="firma">Ettevõte</label>
+        <input id="firma" name="firma" type="text" />
+
+        <label for="email">E-post</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="sonum">Sõnum</label>
+        <textarea id="sonum" name="sonum" rows="4" required></textarea>
+
+        <div id="formMsg" class="msg"></div>
+        <button type="submit">Saada päring</button>
+      </form>
+      <p style="margin-top:16px">Aadress: Vaana tn 15-2, Tallinn, Harjumaa, 11612, Eesti · E-post: <a href="mailto:ann@rockpaperscissorstl.org">ann@rockpaperscissorstl.org</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Menüü: <a href="#meist">Meist</a> · <a href="#teenused">Teenused</a> · <a href="#miks">Miks valida meid?</a> · <a href="#kontakt">Kontakt</a></p>
+    <p>Autoriõigus © <span id="year"></span> Rock Paper Scissors OU. Kõik õigused kaitstud.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('kontaktForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const nimi = (data.get('nimi')||'').trim();
+      const email = (data.get('email')||'').trim();
+      const sonum = (data.get('sonum')||'').trim();
+      if(!nimi){showErr('Palun sisestage nimi.');return;}
+      if(!email.includes('@')){showErr('Kontrollige e-posti aadressi.');return;}
+      if(!sonum){showErr('Palun kirjutage sõnum.');return;}
+      form.reset();
+      msg.textContent = 'Aitäh! Teie päring on saadetud.';
+      msg.className = 'ok';
+    });
+    function showErr(t){msg.textContent=t; msg.className='err';}
+  </script>
+</body>
+</html>
